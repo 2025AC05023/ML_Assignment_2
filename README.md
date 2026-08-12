@@ -11,16 +11,19 @@ The objective of this assignment is to predict whether a bank customer will subs
 | Dataset | UCI Bank Marketing Dataset |
 | Total records | 45,211 |
 | Input features | 16 |
-| Target variable | `y` (yes / no) |
+| Target variable | `y` (binary: yes / no) |
 | Classification type | Binary Classification |
+| Train/test split | 80:20 stratified split |
 
-The dataset contains information collected from direct marketing campaigns conducted by a Portuguese banking institution. Each record corresponds to a single client contact, and the target variable indicates whether the client subscribed to a term deposit.
+The dataset contains information collected from direct marketing campaigns conducted by a Portuguese banking institution. Each record corresponds to a single client contact, and the binary target variable `y` indicates whether the client subscribed to a term deposit.
 
 Prior to model training, the dataset was subjected to a standard preprocessing pipeline. Categorical variables were encoded using appropriate encoding schemes, and numerical features were scaled where required. The processed dataset was partitioned into training and testing subsets using an 80:20 stratified split to preserve the original class distribution across both partitions.
 
+The file `test_data.csv` is included as the test dataset used for the Streamlit demonstration and can be uploaded in the application.
+
 ## Machine Learning Models
 
-The following classification algorithms were implemented and evaluated:
+The following five classification algorithms were implemented and evaluated:
 
 1. Logistic Regression
 2. Decision Tree
@@ -43,47 +46,57 @@ The following classification algorithms were implemented and evaluated:
 
 ## Model Comparison
 
-| Model | Accuracy | ROC-AUC | F1 Score |
-|---|---:|---:|---:|
-| Logistic Regression | 90.1% | 0.906 | 0.452 |
-| Decision Tree | 87.5% | 0.701 | 0.470 |
-| KNN | 89.9% | 0.850 | 0.434 |
-| Gaussian Naive Bayes | 85.5% | 0.810 | 0.456 |
-| Random Forest | 90.7% | 0.929 | 0.509 |
+The following results are taken from the generated evaluation reports.
+
+| Model | Accuracy | AUC / ROC-AUC | Precision | Recall | F1 Score | MCC |
+|---|---:|---:|---:|---:|---:|---:|
+| Logistic Regression | 0.9012 | 0.9056 | 0.6445 | 0.3478 | 0.4518 | 0.4261 |
+| Decision Tree | 0.8746 | 0.7015 | 0.4649 | 0.4754 | 0.4701 | 0.3990 |
+| KNN | 0.8986 | 0.8500 | 0.6257 | 0.3318 | 0.4336 | 0.4070 |
+| Gaussian Naive Bayes | 0.8548 | 0.8101 | 0.4059 | 0.5198 | 0.4559 | 0.3774 |
+| Random Forest | 0.9073 | 0.9291 | 0.6698 | 0.4102 | 0.5088 | 0.4778 |
 
 ## Observations
 
-- **Logistic Regression** achieved 90.1% accuracy and a ROC-AUC of 0.906, performing well while remaining interpretable and computationally efficient.
-- **Decision Tree** is straightforward to interpret but recorded the lowest ROC-AUC (0.701), indicating weaker discrimination between classes despite a reasonable accuracy of 87.5%.
-- **KNN** produced competitive accuracy (89.9%) but yielded the lowest F1-score (0.434) among the five models, suggesting reduced precision or recall on the minority class.
-- **Gaussian Naive Bayes** trained quickly and is computationally inexpensive; however, it achieved comparatively lower accuracy (85.5%) and ROC-AUC (0.810).
-- **Random Forest** recorded the highest accuracy (90.7%) and ROC-AUC (0.929), as well as the highest F1-score (0.509), making it the best-performing model in this experiment.
+| ML Model Name | Observation about model performance |
+|---|---|
+| Logistic Regression | Achieved strong overall accuracy (0.9012) and ROC-AUC (0.9056), with good precision but lower recall on the positive class. |
+| Decision Tree | Produced moderate F1 performance (0.4701) but recorded the lowest ROC-AUC (0.7015), indicating weaker class discrimination. |
+| KNN | Maintained competitive accuracy (0.8986), but had the lowest recall (0.3318) and F1 score (0.4336) among the five models. |
+| Gaussian Naive Bayes | Achieved the highest recall (0.5198), but lower precision (0.4059) and accuracy (0.8548) reduced its overall performance. |
+| Random Forest | Delivered the highest accuracy (0.9073), ROC-AUC (0.9291), precision (0.6698), F1 score (0.5088), and MCC (0.4778). |
+| Overall Winner | Random Forest |
+
+Random Forest is the overall winner because it achieved the best values for five of the six reported metrics: Accuracy, ROC-AUC, Precision, F1 Score, and MCC. Gaussian Naive Bayes achieved the highest Recall, but Random Forest provided the strongest overall balance across the required evaluation measures.
 
 ## Best Performing Model
 
 **Random Forest** was selected as the best-performing model based on the following results:
 
 | Metric | Value |
-|---|---|
-| Accuracy | 90.7% |
-| ROC-AUC | 0.929 |
-| F1 Score | 0.509 |
+|---|---:|
+| Accuracy | 0.9073 |
+| ROC-AUC | 0.9291 |
+| Precision | 0.6698 |
+| Recall | 0.4102 |
+| F1 Score | 0.5088 |
+| MCC | 0.4778 |
 
 ## Conclusion
 
-Five machine learning classification models were implemented and evaluated on the UCI Bank Marketing Dataset. Models were assessed using Accuracy, Precision, Recall, F1-score, ROC-AUC, and Matthews Correlation Coefficient (MCC). Based on the experimental evaluation, Random Forest achieved the best overall performance among the five classifiers and was selected as the final prediction model for this study. A Streamlit application was developed to support interactive prediction and model evaluation.
+Five machine learning classification models were implemented and evaluated on the UCI Bank Marketing Dataset. Models were assessed using Accuracy, Precision, Recall, F1 Score, ROC-AUC, and Matthews Correlation Coefficient (MCC). Based on the experimental evaluation, Random Forest achieved the best overall performance among the five classifiers and was selected as the final prediction model for this study. A Streamlit application was developed to support interactive prediction and model evaluation.
 
 ## Future Scope
 
-Future work may explore hyperparameter tuning to further optimise individual model performance, along with systematic feature selection to reduce dimensionality and improve generalisation. Ensemble optimisation strategies, such as stacking or boosting configurations, present additional avenues for investigation. Given the class imbalance present in the dataset, techniques such as SMOTE or class-weight adjustment could be incorporated to improve recall on the minority class.
+Future work may explore hyperparameter tuning to further optimise individual model performance, along with systematic feature selection to reduce dimensionality and improve generalisation. Given the class imbalance present in the dataset, techniques such as SMOTE or class-weight adjustment could be considered in future experiments to improve recall on the minority class.
 
 ## GitHub Repository
 
-(Add GitHub repository URL here)
+https://github.com/2025AC05023/ML_Assignment_2
 
 ## Streamlit Application
 
-(Add deployed Streamlit URL here)
+https://mlassignment2-9mp5rjvgkazsyoov9t8bsg.streamlit.app
 
 ---
 
@@ -94,11 +107,26 @@ ML_Assignment_2/
 ├── app/
 │   └── streamlit_app.py
 ├── artifacts/
+│   ├── feature_columns.joblib
+│   ├── preprocessor.joblib
+│   └── target_encoder.joblib
 ├── data/
 │   └── bank.csv
 ├── models/
+│   ├── decision_tree.joblib
+│   ├── gaussian_naive_bayes.joblib
+│   ├── knn.joblib
+│   ├── logistic_regression.joblib
+│   └── random_forest.joblib
 ├── notebooks/
 ├── reports/
+│   ├── categorical_summary.csv
+│   ├── detailed_model_results.json
+│   ├── eda_overview.json
+│   ├── missing_values_report.csv
+│   ├── model_comparison.csv
+│   ├── model_metrics.csv
+│   └── numeric_summary.csv
 ├── src/
 │   ├── __init__.py
 │   ├── config.py
@@ -109,28 +137,29 @@ ML_Assignment_2/
 │   ├── preprocessing.py
 │   ├── train.py
 │   └── utils.py
-├── .gitignore
+├── ML_Assignment2.ipynb
 ├── README.md
 ├── requirements.txt
-└── run_training.py
+├── run_training.py
+└── test_data.csv
 ```
 
 ## Setup and Installation
 
-1. Create virtual environment.
+1. Create and activate a virtual environment.
 
 ```powershell
 python -m venv .venv
 .\.venv\Scripts\Activate.ps1
 ```
 
-2. Install dependencies.
+2. Install the required dependencies.
 
 ```powershell
 pip install -r requirements.txt
 ```
 
-3. Place `bank.csv` inside the `data` folder.
+3. Ensure `data/bank.csv` is available for training. The included `test_data.csv` file is used as the test dataset for Streamlit upload and demonstration.
 
 ## Training
 
@@ -144,37 +173,23 @@ Or run:
 python run_training.py
 ```
 
-Generated outputs:
-
-- Models in `models/`
-- Artifacts in `artifacts/`
-  - `preprocessor.joblib`
-  - `target_encoder.joblib`
-  - `feature_columns.joblib`
-- Reports in `reports/`
-  - `eda_overview.json`
-  - `missing_values_report.csv`
-  - `numeric_summary.csv`
-  - `categorical_summary.csv`
-  - `model_metrics.csv`
-  - `model_comparison.csv`
-  - `detailed_model_results.json`
+Generated outputs are saved in `models/`, `artifacts/`, and `reports/`.
 
 ## Streamlit Application (Local)
+
+Run the Streamlit application locally with:
 
 ```powershell
 streamlit run app/streamlit_app.py
 ```
 
+Use `test_data.csv` when uploading test data in the Streamlit application.
+
 ## Requirements
 
-All dependencies are listed in `requirements.txt`. Install them using:
-
-```powershell
-pip install -r requirements.txt
-```
+All dependencies are listed in `requirements.txt` and can be installed with `pip install -r requirements.txt`.
 
 ## Notes
 
-- Dataset is expected to be semicolon-separated (`;`) and include target column `y`.
-- For consistent behavior, train models before using the Streamlit app.
+- The training dataset is expected to be semicolon-separated (`;`) and include the target column `y`.
+- Train the models before using the local Streamlit app if model or artifact files are missing or need to be regenerated.
