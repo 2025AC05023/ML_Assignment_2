@@ -112,7 +112,7 @@ def render_selected_model_evaluation(model_result: dict) -> None:
 def main() -> None:
     """Render full Streamlit application."""
     st.title("Bank Marketing Classification Workbench")
-    st.caption("Upload bank.csv, select a model, inspect predictions, and compare performance.")
+    st.caption("Upload test_data.csv, select a model, inspect predictions, and compare performance.")
 
     with st.sidebar:
         st.header("Model Selection")
@@ -160,7 +160,7 @@ def main() -> None:
         st.write("Missing values summary")
         st.dataframe(missing_report, use_container_width=True)
 
-    uploaded_file = st.file_uploader("Upload semicolon-separated bank.csv", type=["csv"])
+    uploaded_file = st.file_uploader("Upload semicolon-separated test_data.csv", type=["csv"])
 
     if uploaded_file is not None:
         data = pd.read_csv(uploaded_file, sep=";")
