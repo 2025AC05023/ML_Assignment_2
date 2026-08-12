@@ -48,7 +48,7 @@ The following five classification algorithms were implemented and evaluated:
 
 The following results are taken from the generated evaluation reports.
 
-| Model | Accuracy | AUC / ROC-AUC | Precision | Recall | F1 Score | MCC |
+| Model | Accuracy | AUC | Precision | Recall | F1 Score | MCC |
 |---|---:|---:|---:|---:|---:|---:|
 | Logistic Regression | 0.9012 | 0.9056 | 0.6445 | 0.3478 | 0.4518 | 0.4261 |
 | Decision Tree | 0.8746 | 0.7015 | 0.4649 | 0.4754 | 0.4701 | 0.3990 |
