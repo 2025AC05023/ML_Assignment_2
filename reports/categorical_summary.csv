@@ -1,0 +1,11 @@
+column,unique_values,top_values
+job,12,"{""blue-collar"": 9732, ""management"": 9458, ""technician"": 7597, ""admin."": 5171, ""services"": 4154}"
+marital,3,"{""married"": 27214, ""single"": 12790, ""divorced"": 5207}"
+education,4,"{""secondary"": 23202, ""tertiary"": 13301, ""primary"": 6851, ""unknown"": 1857}"
+default,2,"{""no"": 44396, ""yes"": 815}"
+housing,2,"{""yes"": 25130, ""no"": 20081}"
+loan,2,"{""no"": 37967, ""yes"": 7244}"
+contact,3,"{""cellular"": 29285, ""unknown"": 13020, ""telephone"": 2906}"
+month,12,"{""may"": 13766, ""jul"": 6895, ""aug"": 6247, ""jun"": 5341, ""nov"": 3970}"
+poutcome,4,"{""unknown"": 36959, ""failure"": 4901, ""other"": 1840, ""success"": 1511}"
+y,2,"{""no"": 39922, ""yes"": 5289}"

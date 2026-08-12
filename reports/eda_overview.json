@@ -1,0 +1,28 @@
+{
+  "rows": 45211,
+  "columns": 17,
+  "target_column": "y",
+  "target_distribution": {
+    "no": 39922,
+    "yes": 5289
+  },
+  "dtypes": {
+    "age": "int64",
+    "job": "object",
+    "marital": "object",
+    "education": "object",
+    "default": "object",
+    "balance": "int64",
+    "housing": "object",
+    "loan": "object",
+    "contact": "object",
+    "day": "int64",
+    "month": "object",
+    "duration": "int64",
+    "campaign": "int64",
+    "pdays": "int64",
+    "previous": "int64",
+    "poutcome": "object",
+    "y": "object"
+  }
+}
