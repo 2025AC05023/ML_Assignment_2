@@ -65,7 +65,10 @@ The following results are taken from the generated evaluation reports.
 | KNN | Maintained competitive accuracy (0.8986), but had the lowest recall (0.3318) and F1 score (0.4336) among the five models. |
 | Gaussian Naive Bayes | Achieved the highest recall (0.5198), but lower precision (0.4059) and accuracy (0.8548) reduced its overall performance. |
 | Random Forest | Delivered the highest accuracy (0.9073), ROC-AUC (0.9291), precision (0.6698), F1 score (0.5088), and MCC (0.4778). |
-| Overall Winner | Random Forest |
+
+### Overall Winner
+
+**Random Forest**
 
 Random Forest is the overall winner because it achieved the best values for five of the six reported metrics: Accuracy, ROC-AUC, Precision, F1 Score, and MCC. Gaussian Naive Bayes achieved the highest Recall, but Random Forest provided the strongest overall balance across the required evaluation measures.
 
@@ -92,11 +95,11 @@ Future work may explore hyperparameter tuning to further optimise individual mod
 
 ## GitHub Repository
 
-https://github.com/2025AC05023/ML_Assignment_2
+[ML_Assignment_2 GitHub Repository](https://github.com/2025AC05023/ML_Assignment_2)
 
 ## Streamlit Application
 
-https://mlassignment2-9mp5rjvgkazsyoov9t8bsg.streamlit.app
+[Live Streamlit Application](https://mlassignment2-9mp5rjvgkazsyoov9t8bsg.streamlit.app)
 
 ---
 
@@ -118,7 +121,6 @@ ML_Assignment_2/
 │   ├── knn.joblib
 │   ├── logistic_regression.joblib
 │   └── random_forest.joblib
-├── notebooks/
 ├── reports/
 │   ├── categorical_summary.csv
 │   ├── detailed_model_results.json
